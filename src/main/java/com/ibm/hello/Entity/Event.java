@@ -1,18 +1,22 @@
 package com.ibm.hello.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+
 @Entity
+@Table(name="tb_event")
+@Getter
+@Setter
 public class Event implements Serializable {
     public static final long SerialVersionUID=1l;
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String name;
@@ -37,69 +41,7 @@ public class Event implements Serializable {
         this.description = description;
     }
 
-    public Long getId() {
-        return Id;
-    }
 
-    public void setId(Long id) {
-        Id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLocal() {
-        return local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Instant getData() {
-        return data;
-    }
-
-    public void setData(Instant data) {
-        this.data = data;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public boolean equals(Object o) {

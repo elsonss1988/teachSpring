@@ -2,11 +2,13 @@ package com.ibm.hello.Entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
 @Table(name="tb_user")
-public class User {
+public class User implements Serializable {
+    public static final long serialVersionUID=1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +16,7 @@ public class User {
     private String name;
     private String lastName ;
     private String email;
+    @Column(columnDefinition = "TIME WITHOUT TIME ZONE ")
     private Instant nascimento;
 
     public  User(){};
